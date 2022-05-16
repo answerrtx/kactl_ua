@@ -9,6 +9,7 @@
  *  vector<int> vec = {1,2,3};
  *  vec = (A^N) * vec;
  * Status: tested
+ * MOD = __
  */
 #pragma once
 
@@ -18,12 +19,12 @@ template<class T, int N> struct Matrix {
 	M operator*(const M& m) const {
 		M a;
 		rep(i,0,N) rep(j,0,N)
-			rep(k,0,N) a.d[i][j] += d[i][k]*m.d[k][j];
+			rep(k,0,N) a.d[i][j] += d[i][k]*m.d[k][j]%MOD;
 		return a;
 	}
 	vector<T> operator*(const vector<T>& vec) const {
 		vector<T> ret(N);
-		rep(i,0,N) rep(j,0,N) ret[i] += d[i][j] * vec[j];
+		rep(i,0,N) rep(j,0,N) ret[i] += d[i][j] * vec[j]% MOD;
 		return ret;
 	}
 	M operator^(ll p) const {
