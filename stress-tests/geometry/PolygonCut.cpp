@@ -8,6 +8,7 @@
 
 typedef Point<double> P;
 int main() {
+	srand(time(NULL));
 	rep(it,0,500) {
 		int N = rand() % 10 + 3;
 		vector<P> ps;
