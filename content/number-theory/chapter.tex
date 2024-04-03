@@ -64,7 +64,8 @@
 
  $ g(n) = \sum_{1 \leq m \leq n} f(\left\lfloor\frac{n}{m}\right \rfloor ) \Leftrightarrow f(n) = \sum_{1\leq m\leq n} \mu(m)g(\left\lfloor\frac{n}{m}\right\rfloor)$
 
- \subsection{Type I}
+ \text{Type I}
+ \begin{small}
  \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m[\operatorname{gcd}(i, j)=1]=\sum_{i=1}^n \sum_{j=1}^m \sum_{x \mid i} \sum_{x \mid j} \mu(x) \\
@@ -72,9 +73,11 @@
 	=\sum_{x=1}^n \mu(x)\left\lfloor\frac{n}{x}\right\rfloor\left\lfloor\frac{m}{x}\right\rfloor
 	\end{gathered}
 	\end{equation}
+\end{small}
 $O(n)$ initialization, $O(sqrt(n))$ query.
 
-\subsection{Type II}
+\textbf{Type II}
+\begin{small}
 \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m \operatorname{gcd}(i, j)=\sum_{i=1}^n \sum_{j=1}^m \sum_{x \mid i} \sum_{x \mid j} \phi(x) \\
@@ -82,8 +85,10 @@ $O(n)$ initialization, $O(sqrt(n))$ query.
 	=\sum_{x=1}^n \phi(x)\left\lfloor\frac{n}{x}\right\rfloor\left\lfloor\frac{m}{x}\right\rfloor
 	\end{gathered}
 	\end{equation}
+\end{small}
 
-\subsection{Type III}
+\textbf{Type III}
+\begin{small}
 \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m f(\operatorname{gcd}(i, j))=\sum_{d=1}^n f(d) \sum_{i=1}^n \sum_{j=1}^m[\operatorname{gcd}(i, j)=d] \\
@@ -95,6 +100,8 @@ $O(n)$ initialization, $O(sqrt(n))$ query.
 	\begin{equation}
 		=\sum_{T=1}^n\left\lfloor\frac{n}{T}\right\rfloor\left\lfloor\frac{m}{T}\right\rfloor \sum_{d \mid T} f(d) \mu\left(\frac{T}{d}\right)
 		\end{equation}
+	\end{small}
+
  \section{Min25 Sieve}
  $\sum_{i=1}^{n} F(x)$, $F(x)$ is a productivity function. The algorithm can be used provided that: the value of $f(p)$ at a prime is a polynomial with respect to $p$ and $f\left(p^{e}\right)$ can be calculated quickly.
  \kactlimport{Min25.h}
