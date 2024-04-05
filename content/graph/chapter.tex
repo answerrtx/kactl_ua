@@ -43,8 +43,8 @@
 	\kactlimport{LinkCutTree.h}
 	\kactlimport{DirectedMST.h}
 
-\section{Math}
-	\subsection{Number of Spanning Trees}
+
+	\textbf{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.
 		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
 		% Test: stress-tests/graph/matrix-tree.cpp
@@ -53,7 +53,7 @@
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).
 
-	\subsection{Erdős–Gallai theorem}
+	\textbf{Erdős–Gallai theorem}
 		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
 		% Test: stress-tests/graph/erdos-gallai.cpp
 		A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,

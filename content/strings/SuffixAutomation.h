@@ -14,8 +14,7 @@ template<int N,int M=26> struct suffixam{
     void expand(int r){
         int u=++tot,p=last;last=u; len[u]=len[p]+1,siz[u]=1;
         while(p&&!ch[p][r]) ch[p][r]=u,p=link[p];
-        if(!p) return void(link[u]=1);
-        int q=ch[p][r];
+        if(!p) return void(link[u]=1); int q=ch[p][r];
         if(len[q]==len[p]+1) return void(link[u]=q);
         int cq=++tot;memcpy(ch[cq],ch[q],sizeof ch[cq]);
         len[cq]=len[p]+1,link[cq]=link[q]; link[u]=link[q]=cq;
@@ -23,9 +22,7 @@ template<int N,int M=26> struct suffixam{
     }
 };
 /*general sam*/
-const int N=2e6+5;
-struct trie{int fa,c,s[26];} tr[N];
-int idx=1;
+const int N=2e6+5; struct trie{int fa,c,s[26];} tr[N]; int idx=1;
 il void ins(char *s) {
     int len=strlen(s+1),now=1;
     for(int i=1;i<=len;i++) {
@@ -33,8 +30,7 @@ il void ins(char *s) {
         if(!to) to=++idx,tr[to].fa=now,tr[to].c=s[i]-'a'; now=to;
     }
 }
-struct SAM{int fa,len,s[26];} d[N];
-int tot=1;
+struct SAM{int fa,len,s[26];} d[N]; int tot=1;
 // offline bfs O(n), n is the number of nodes in trie
 il int insert(int c,int lst) {
     int p=lst,np=lst=++tot; d[np].len=d[p].len+1;
@@ -71,17 +67,15 @@ il int insert(int c,int lst){
     for(;p&&d[p].s[c]==q;p=d[p].fa) d[p].s[c]=nq;
     return flag?nq:np;
 }
-int pos[N];
+int pos[N];char s[N];
 il void dfs(int u) {
     for(int i=0;i<26;i++){ int v=tr[u].s[i];
         if(v) pos[v]=insert(i,pos[u]),dfs(v);
     }
 }
-//
-char s[N];
 int main() {
     int n=read(); for(int i=1;i<=n;i++) scanf("%s",s+1),ins(s);
-    build();//bfs
+    build();//bfs 
     pos[1]=1,dfs(1);//dfs
     long long ans=0;
     for(int i=2;i<=tot;i++) ans+=d[i].len-d[d[i].fa].len;

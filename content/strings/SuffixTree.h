@@ -12,7 +12,6 @@
  * Status: stress-tested a bit
  */
 #pragma once
-
 struct SuffixTree {
 	enum { N = 200010, ALPHA = 26 }; // N ~ 2*maxlen+10
 	int toi(char c) { return c - 'a'; }
@@ -35,7 +34,6 @@ struct SuffixTree {
 			q=r[v]-(q-r[m]);  m+=2;  goto suff;
 		}
 	}
-
 	SuffixTree(string a) : a(a) {
 		fill(r,r+N,sz(a));
 		memset(s, 0, sizeof s);
@@ -44,7 +42,6 @@ struct SuffixTree {
 		s[0] = 1; l[0] = l[1] = -1; r[0] = r[1] = p[0] = p[1] = 0;
 		rep(i,0,sz(a)) ukkadd(i, toi(a[i]));
 	}
-
 	// example: find longest common substring (uses ALPHA = 28)
 	pii best;
 	int lcs(int node, int i1, int i2, int olen) {

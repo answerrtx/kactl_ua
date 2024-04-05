@@ -14,8 +14,7 @@ int knapsack(vi w, int t) {
 	while (b < sz(w) && a + w[b] <= t) a += w[b++];
 	if (b == sz(w)) return a;
 	int m = *max_element(all(w));
-	vi u, v(2*m, -1);
-	v[a+m-t] = b;
+	vi u, v(2*m, -1); v[a+m-t] = b;
 	rep(i,b,sz(w)) {
 		u = v;
 		rep(x,0,m) v[x+w[i]] = max(v[x+w[i]], u[x]);

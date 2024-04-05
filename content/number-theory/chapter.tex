@@ -69,7 +69,7 @@
  \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m[\operatorname{gcd}(i, j)=1]=\sum_{i=1}^n \sum_{j=1}^m \sum_{x \mid i} \sum_{x \mid j} \mu(x) \\
-	=\sum_{x=1}^n \mu(x) \sum_{i=1}^n \sum_{j=1}^m[x \mid i][x \mid j] \\
+	=\sum_{x=1}^n \mu(x) \sum_{i=1}^n \sum_{j=1}^m[x \mid i][x \mid j] 
 	=\sum_{x=1}^n \mu(x)\left\lfloor\frac{n}{x}\right\rfloor\left\lfloor\frac{m}{x}\right\rfloor
 	\end{gathered}
 	\end{equation}
@@ -81,7 +81,7 @@ $O(n)$ initialization, $O(sqrt(n))$ query.
 \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m \operatorname{gcd}(i, j)=\sum_{i=1}^n \sum_{j=1}^m \sum_{x \mid i} \sum_{x \mid j} \phi(x) \\
-	=\sum_{x=1}^n \phi(x) \sum_{i=1}^n \sum_{j=1}^m[x \mid i][x \mid j] \\
+	=\sum_{x=1}^n \phi(x) \sum_{i=1}^n \sum_{j=1}^m[x \mid i][x \mid j] 
 	=\sum_{x=1}^n \phi(x)\left\lfloor\frac{n}{x}\right\rfloor\left\lfloor\frac{m}{x}\right\rfloor
 	\end{gathered}
 	\end{equation}
@@ -92,7 +92,7 @@ $O(n)$ initialization, $O(sqrt(n))$ query.
 \begin{equation}
 	\begin{gathered}
 	\sum_{i=1}^n \sum_{j=1}^m f(\operatorname{gcd}(i, j))=\sum_{d=1}^n f(d) \sum_{i=1}^n \sum_{j=1}^m[\operatorname{gcd}(i, j)=d] \\
-	=\sum_{d=1}^n f(d) \sum_{i=1}^{\left\lfloor\frac{n}{d}\right\rfloor} \sum_{j=1}^{\left\lfloor\frac{m}{d}\right\rfloor}[\operatorname{gcd}(i, j)=1] \\
+	=\sum_{d=1}^n f(d) \sum_{i=1}^{\left\lfloor\frac{n}{d}\right\rfloor} \sum_{j=1}^{\left\lfloor\frac{m}{d}\right\rfloor}[\operatorname{gcd}(i, j)=1] 
 	\left.=\sum_{d=1}^n f(d) \sum_{k=1}^{\left\lfloor\frac{n}{d}\right\rfloor} \mu(k)\left\lfloor\frac{n}{d k}\right\rfloor \frac{m}{d k}\right\rfloor
 	\end{gathered}
 	\end{equation}
@@ -103,5 +103,4 @@ $O(n)$ initialization, $O(sqrt(n))$ query.
 	\end{small}
 
  \section{Min25 Sieve}
- $\sum_{i=1}^{n} F(x)$, $F(x)$ is a productivity function. The algorithm can be used provided that: the value of $f(p)$ at a prime is a polynomial with respect to $p$ and $f\left(p^{e}\right)$ can be calculated quickly.
  \kactlimport{Min25.h}
